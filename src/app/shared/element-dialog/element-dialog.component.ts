@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {PeriodicElement} from "../../views/home/home.component";
+import {ListProduct} from "../../views/home/home.component";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
@@ -8,7 +8,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
   styleUrls: ['./element-dialog.component.scss']
 })
 export class ElementDialogComponent implements OnInit{
-  element!: PeriodicElement;
+  product!: ListProduct;
   isChange!: boolean;
   position: any;
   album: any;

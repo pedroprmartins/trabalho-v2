@@ -3,14 +3,14 @@ import {ElementDialogComponent} from "../../shared/element-dialog/element-dialog
 import {MatDialog} from "@angular/material/dialog";
 import {MatTable} from "@angular/material/table";
 
-export interface PeriodicElement {
+export interface ListProduct {
   album: string;
   position: number;
   year: number;
   band: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
+const ELEMENT_DATA: ListProduct[] = [
   {position: 1, album: 'The Wall', year: 1979, band: 'Pink Floyd'},
   {position: 2, album: 'In Utero', year: 1993, band: 'Nirvana'},
   {position: 3, album: 'Paranoid', year: 1970, band: 'Black Sabbath'},
@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit{
 
   ngOnInit(): void {}
 
-  openDialog(element: PeriodicElement | null): void {
+  openDialog(element: ListProduct | null): void {
     const dialogRef = this.dialog.open(ElementDialogComponent, {
       //width: '250px',
       data: element === null ? {
@@ -71,7 +71,7 @@ export class HomeComponent implements OnInit{
     this.dataSource = this.dataSource.filter(p => p.position !== position);
   }
 
-  editElement(element: PeriodicElement): void {
+  editElement(element: ListProduct): void {
     this.openDialog(element);
   }
 }
