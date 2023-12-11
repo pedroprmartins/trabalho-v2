@@ -1,5 +1,5 @@
-<h1 *ngIf="!isChange" mat-dialog-title>Create Product</h1>
-<h1 *ngIf="isChange" mat-dialog-title>Edit Product</h1>
+<h1 *ngIf="!isChange" mat-dialog-title>Add your new favorite album</h1>
+<h1 *ngIf="isChange" mat-dialog-title>Edit album</h1>
 <div mat-dialog-content>
   <mat-form-field>
     <mat-label>Position</mat-label>
@@ -20,6 +20,6 @@
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onCancel()">Cancel</button>
-  <button mat-button *ngIf="!isChange" [mat-dialog-close]="data" cdkFocusInitial>Create</button>
-  <button mat-button *ngIf="isChange" [mat-dialog-close]="data" cdkFocusInitial>Edit</button>
+  <button mat-button *ngIf="!isChange" [mat-dialog-close]="data" cdkFocusInitial>Add new album</button>
+  <button mat-button *ngIf="isChange" [mat-dialog-close]="data" cdkFocusInitial>Edit album</button>
 </div>

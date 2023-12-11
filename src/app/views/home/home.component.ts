@@ -1,77 +1,88 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {ElementDialogComponent} from "../../shared/element-dialog/element-dialog.component";
+import {AlbumDialogComponent} from "../../shared/album-dialog/album-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 import {MatTable} from "@angular/material/table";
-
-export interface ListProduct {
-  album: string;
-  position: number;
-  year: number;
-  band: string;
-}
-
-const ELEMENT_DATA: ListProduct[] = [
-  {position: 1, album: 'The Wall', year: 1979, band: 'Pink Floyd'},
-  {position: 2, album: 'In Utero', year: 1993, band: 'Nirvana'},
-  {position: 3, album: 'Paranoid', year: 1970, band: 'Black Sabbath'},
-  {position: 4, album: 'A Night At The Opera', year: 1975, band: 'Queen'},
-  {position: 5, album: 'Rumours', year: 1977, band: 'Fleetwood Mac'},
-  {position: 6, album: 'Ok Computer', year: 1997, band: 'Radiohead'},
-  {position: 7, album: 'Countdown To Extinction', year: 1992, band: 'Megadeth'},
-  {position: 8, album: 'Back In Black', year: 1980, band: 'AC DC'},
-  {position: 9, album: 'Aqualung', year: 1971, band: 'Jethro Tull'},
-  {position: 10, album: 'Appetite For Destruction', year: 1987, band: 'Guns N Roses'},
-];
+import {ListAlbums} from "../../models/ListAlbums";
+import {ListAlbumsService} from "../../services/ListAlbums.service";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  providers: [ListAlbumsService]
 })
 export class HomeComponent implements OnInit{
   @ViewChild(MatTable)
   table!: MatTable<any>;
   displayedColumns: string[] = ['position', 'album', 'year', 'band', 'action'];
-  dataSource = ELEMENT_DATA;
+  dataSource! : ListAlbums[];
 
-  constructor(public dialog: MatDialog) {}
+  constructor(
+    public dialog: MatDialog,
+    public listAlbumsService: ListAlbumsService
+  ) {
+    this.listAlbumsService.getAlbums().subscribe((data: ListAlbums[]) => {
+      console.log(data);
+      this.dataSource = data;
+    });
+  }
 
   ngOnInit(): void {}
 
-  openDialog(element: ListProduct | null): void {
-    const dialogRef = this.dialog.open(ElementDialogComponent, {
+  openDialog(album: ListAlbums | null): void {
+    const dialogRef = this.dialog.open(AlbumDialogComponent, {
       //width: '250px',
-      data: element === null ? {
+      data: album === null ? {
         position: null,
         album: '',
         year: null,
         band: '',
       } : {
-        position: element.position,
-        album: element.album,
-        year: element.year,
-        band: element.band,
+        id: album.id,
+        position: album.position,
+        album: album.album,
+        year: album.year,
+        band: album.band,
       }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result !== undefined){
-        if (this.dataSource.map(p => p.position).includes(result.position)){
-          this.dataSource[result.position - 1] = result;
-          this.table.renderRows();
+        console.log(result);
+        if (this.dataSource && this.dataSource.map(p => p.id).includes(result.id)){
+          this.listAlbumsService.editAlbum(result).subscribe((data: ListAlbums) => {
+            const index = this.dataSource.findIndex(p => p.id === data.id);
+            if (index !== -1) {
+              this.dataSource[index] = result;
+              this.table.renderRows();
+            }
+          });
         } else {
-          this.dataSource.push(result);
-          this.table.renderRows();
+          this.listAlbumsService.createAlbum(result).subscribe((data: ListAlbums) => {
+            this.dataSource.push(data);
+            this.table.renderRows();
+          });
+        /*if (this.dataSource.map(p => p.id).includes(result.id)){
+          this.listAlbumsService.editAlbum(result).subscribe((data: ListAlbums) => {
+            const index = this.dataSource.findIndex(p => p.id === data.id);
+            this.dataSource[index] = result;
+            this.table.renderRows();
+          });
+        } else {
+          this.listAlbumsService.createAlbum(result).subscribe((data: ListAlbums) => {
+            this.dataSource.push(result);
+            this.table.renderRows();
+          });*/
         }
       }
     });
   }
-
-  deleteElement(position: number): void {
-    this.dataSource = this.dataSource.filter(p => p.position !== position);
+  editAlbum(album: ListAlbums): void {
+    this.openDialog(album);
   }
-
-  editElement(element: ListProduct): void {
-    this.openDialog(element);
+  deleteAlbum(position: number): void {
+    this.listAlbumsService.deleteAlbum(position).subscribe(() => {
+      this.dataSource = this.dataSource.filter(p => p.id !== position);
+    });
   }
 }

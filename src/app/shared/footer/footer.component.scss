@@ -1,10 +1,35 @@
 .container {
-  background-color: #673bb7;
-  padding: 20px 50px 20px 50px;
   display: flex;
-  flex-direction: row-reverse;
+  height: 30%;
+  width: 100%;
+  background-image: url('../../../assets/img/metal.webp');
+  background-size: cover;
+  flex-direction: row;
 }
 
 .copyright {
-  color: white;
+  color: red;
+}
+
+//--------- resposive ---------//
+
+@media (max-width: 768px) and (min-width: 560px) {
+  .container {
+    height: 15%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 559px) and (min-width: 420px) {
+  .container {
+    height: 15%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 419px) and (min-width: 320px) {
+  .container {
+    height: 18%;
+    width: 152%;
+  }
 }

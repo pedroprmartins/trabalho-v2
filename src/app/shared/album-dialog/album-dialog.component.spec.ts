@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ElementDialogComponent } from './element-dialog.component';
+import { AlbumDialogComponent } from './album-dialog.component';
 
 describe('ElementDialogComponent', () => {
-  let component: ElementDialogComponent;
-  let fixture: ComponentFixture<ElementDialogComponent>;
+  let component: AlbumDialogComponent;
+  let fixture: ComponentFixture<AlbumDialogComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ElementDialogComponent]
+      declarations: [AlbumDialogComponent]
     });
-    fixture = TestBed.createComponent(ElementDialogComponent);
+    fixture = TestBed.createComponent(AlbumDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
