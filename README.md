@@ -37,3 +37,10 @@ Este projeto consiste em um aplicativo web para gerenciar álbuns de Rock. Ele o
 2. Instale as dependências: `npm install`
 3. Execute o aplicativo Angular: `ng serve`
 4. Abra o navegador e vá para: `http://localhost:4200`
+
+# Se encontrar problemas durante a execução
+
+Se você encontrar problemas durante a execução da aplicação, certifique-se de verificar o arquivo `.gitignore` para garantir que os arquivos e diretórios necessários não estão sendo ignorados pelo Git. Às vezes, configurações específicas de ambiente ou arquivos gerados podem ser excluídos do controle de versão.
+
+Se o problema persistir ou se precisar de ajuda adicional, sinta-se à vontade para entrar em contato ou revisitar a documentação para obter orientações sobre a configuração do projeto.
+
