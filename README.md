@@ -1,27 +1,39 @@
-# Project in Angular
+# Gerenciador de Álbuns de Rock
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+## Visão Geral
+Este projeto consiste em um aplicativo web para gerenciar álbuns de Rock. Ele oferece funcionalidades como adição, edição, exclusão e visualização de álbuns. O sistema é composto por um frontend construído em Angular e um backend utilizando Node.js com Express e Sequelize para interação com um banco de dados SQLite.
 
-## Development server
+## Funcionalidades Principais
+- Adição de novos álbuns, fornecendo informações como posição, título do álbum, ano e banda.
+- Edição de álbuns existentes para atualização de informações.
+- Exclusão de álbuns.
+- Visualização de todos os álbuns cadastrados.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Tecnologias Utilizadas
+- **Frontend:**
+  - Angular - Framework para construção do frontend.
+  - TypeScript - Linguagem de programação utilizada no frontend.
+  - Material Design - Componentes visuais para uma interface moderna.
 
-## Code scaffolding
+- **Backend:**
+  - Node.js - Ambiente de execução do servidor.
+  - Express - Framework para construção de APIs em Node.js.
+  - Sequelize - ORM para interação com banco de dados SQLite.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Configuração do Ambiente
+1. Certifique-se de ter o Node.js instalado: [https://nodejs.org/](https://nodejs.org/)
+2. Certifique-se de ter o Angular CLI instalado globalmente: `npm install -g @angular/cli`
+3. Clone este repositório: `git clone https://github.com/seu-nome/seu-projeto.git`
+4. Navegue até o diretório do projeto: `cd seu-projeto`
 
-## Build
+## Configuração do Backend
+1. Navegue até o diretório 'backend': `cd backend`
+2. Instale as dependências: `npm install`
+3. Execute o servidor Node.js: `node server.js`
+4. O backend estará disponível em: `http://localhost:3000`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Configuração do Frontend
+1. Navegue até o diretório 'frontend': `cd frontend`
+2. Instale as dependências: `npm install`
+3. Execute o aplicativo Angular: `ng serve`
+4. Abra o navegador e vá para: `http://localhost:4200`
