@@ -40,8 +40,3 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
-/backend/database.sqlite
-/backend/package.json
-/backend/package-lock.json
-/src/assets/
-/backend/node_modules/
