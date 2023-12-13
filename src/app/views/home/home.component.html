@@ -2,7 +2,7 @@
   <button mat-button color="warn" (click)="openDialog(null)">Add More Albums Here</button>
   <table mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
 
-    <!-- Position Column -->
+    <!-- Rank Column -->
     <ng-container matColumnDef="position">
       <th mat-header-cell *matHeaderCellDef> Rank </th>
       <td mat-cell *matCellDef="let album"> {{album.position}} </td>
@@ -30,6 +30,9 @@
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef> Action </th>
       <td mat-cell *matCellDef="let album">
+        <button mat-icon-button color="warn" (click)="detailsAlbum(album)">
+          <mat-icon>visibility</mat-icon>
+        </button>
         <button mat-icon-button color="warn" (click)="editAlbum(album)">
           <mat-icon>edit</mat-icon>
         </button>
