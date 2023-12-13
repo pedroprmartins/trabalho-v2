@@ -62,20 +62,13 @@ export class HomeComponent implements OnInit{
             this.dataSource.push(data);
             this.table.renderRows();
           });
-        /*if (this.dataSource.map(p => p.id).includes(result.id)){
-          this.listAlbumsService.editAlbum(result).subscribe((data: ListAlbums) => {
-            const index = this.dataSource.findIndex(p => p.id === data.id);
-            this.dataSource[index] = result;
-            this.table.renderRows();
-          });
-        } else {
-          this.listAlbumsService.createAlbum(result).subscribe((data: ListAlbums) => {
-            this.dataSource.push(result);
-            this.table.renderRows();
-          });*/
         }
       }
     });
+  }
+
+  detailsAlbum(album: ListAlbums){
+    this.openDialog(album);
   }
   editAlbum(album: ListAlbums): void {
     this.openDialog(album);
