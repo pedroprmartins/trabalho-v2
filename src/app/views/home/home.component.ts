@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit{
 
   ngOnInit(): void {}
 
+  //Falta acressentar o campo para imagem
   openDialog(album: ListAlbums | null): void {
     const dialogRef = this.dialog.open(AlbumDialogComponent, {
       //width: '250px',
