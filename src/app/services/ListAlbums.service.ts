@@ -19,7 +19,8 @@ export class ListAlbumsService {
 
   editAlbum(album: ListAlbums): Observable<ListAlbums> {
     // Adicione um corpo vazio para a solicitação PUT
-    return this.http.put<ListAlbums>(`${this.albumsApiUrl}/${album.id}`, album, { headers: { 'Content-Type': 'application/json' } });
+    return this.http.put<ListAlbums>(`${this.albumsApiUrl}/${album.id}`, album,
+      { headers: { 'Content-Type': 'application/json' }});
   }
 
   deleteAlbum(id: number): Observable<any> {

@@ -1,12 +1,35 @@
+.container-gif {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+
+  #background-gif {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+  }
+}
+
 table {
   width: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+}
+
+th, td {
+  text-align: center;
 }
 
 .container {
   padding: 50px 80px;
 }
 
-//--------- resposive ---------//
+/*--------- resposive ---------*/
 
 @media (max-width: 559px) and (min-width: 420px) {
   table {
