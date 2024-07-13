@@ -1,6 +1,7 @@
 
 @import url('https://fonts.cdnfonts.com/css/iron-maiden');
 @import url('https://fonts.cdnfonts.com/css/rough-city');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 .container {
   display: flex;
@@ -12,10 +13,16 @@
 }
 
 .titulo {
-  color: red;
-  font-size: 62px;
+  color: #b81423;
+  font-size: 60px;
   //font-family: 'Iron Maiden', sans-serif;
-  font-family: 'Rough City', sans-serif;
+  //font-family: 'Rough City', sans-serif;
+  font-family: "Permanent Marker", cursive;
+  font-weight: 400;
+  font-style: normal;
+
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: white;
 }
 
 //--------- resposive ---------//
